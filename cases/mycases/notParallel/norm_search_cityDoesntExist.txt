@@ -1,0 +1,11 @@
+# user 1
+search "Seattle WA" "DM ME" 1 1 1
+# People call me DM LOL
+quit
+*
+#
+# expected printouts for user 1
+#
+No flights match your selection
+Goodbye
+*

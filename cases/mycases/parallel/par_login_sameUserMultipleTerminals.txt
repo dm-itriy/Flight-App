@@ -1,0 +1,35 @@
+# Tests 2 terminals trying to log into the same account
+# Both should log in successfully
+#
+# Terminal 1
+create user pwd1 100
+login user pwd1
+quit
+*
+# expected result for Terminal 1
+# scenario 1: Terminal 1 succeeds, Terminal 2 fails in creating user
+Created user user
+Logged in as user
+Goodbye
+|
+# scenario 2: Terminal 1 fails, Terminal 2 succeeds in creating user
+Failed to create user
+Logged in as user
+Goodbye
+*
+# Terminal 2
+create user pwd1 100
+login user pwd1
+quit
+*
+# expected result for Terminal 2
+# scenario 1: Terminal 1 succeeds, Terminal 2 fails in creating user
+Failed to create user
+Logged in as user
+Goodbye
+|
+# scenario 2: Terminal 1 fails, Terminal 2 succeeds in creating user
+Created user user
+Logged in as user
+Goodbye
+*

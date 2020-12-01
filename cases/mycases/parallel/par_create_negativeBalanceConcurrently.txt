@@ -1,0 +1,19 @@
+# two terminals attempt to create the same user however one user will have a negative amount
+# while the other will not. Terminal 1 should succeed and Terminal 2 should fail.
+#
+# Terminal 1
+create user pwd1 100
+quit
+*
+# expected result for Terminal 1
+Created user user
+Goodbye
+*
+# Terminal 2
+create user pwd2 -100
+quit
+*
+# expected result for Terminal 2
+Failed to create user
+Goodbye
+*

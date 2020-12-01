@@ -1,0 +1,79 @@
+# Two terminals attempt to create user1 then book the two different flights on the same day
+# Terminal 1
+create user1 user1 10000
+login user1 user1
+search "Kahului HI" "Los Angeles CA" 1 6 1
+book 0
+quit
+*
+# Terminal 1 succeeds in user creation and booking
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 273 minutes
+ID: 131239 Day: 6 Carrier: DL Number: 292 Origin: Kahului HI Dest: Los Angeles CA Duration: 273 Capacity: 14 Price: 689
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# Terminal 1 succeeds in user creation, but fails booking
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 273 minutes
+ID: 131239 Day: 6 Carrier: DL Number: 292 Origin: Kahului HI Dest: Los Angeles CA Duration: 273 Capacity: 14 Price: 689
+You cannot book two flights in the same day
+Goodbye
+|
+# Terminal 1 fails to create user as Terminal 2 already has, but succeeds booking
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 273 minutes
+ID: 131239 Day: 6 Carrier: DL Number: 292 Origin: Kahului HI Dest: Los Angeles CA Duration: 273 Capacity: 14 Price: 689
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# Terminal 1 fails to create user as Terminal 2 already has, and fails booking
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 273 minutes
+ID: 131239 Day: 6 Carrier: DL Number: 292 Origin: Kahului HI Dest: Los Angeles CA Duration: 273 Capacity: 14 Price: 689
+You cannot book two flights in the same day
+Goodbye
+*
+# Terminal 2
+create user1 user1 10000
+login user1 user1
+search "Seattle WA" "Boston MA" 1 6 1
+book 0
+quit
+*
+# Terminal 2 fails in user creation and booking
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 295 minutes
+ID: 718310 Day: 6 Carrier: AS Number: 734 Origin: Seattle WA Dest: Boston MA Duration: 295 Capacity: 9 Price: 847
+You cannot book two flights in the same day
+Goodbye
+|
+# Terminal 2 fails in user creation, but succeeds booking
+Failed to create user
+Logged in as user1
+Itinerary 0: 1 flight(s), 295 minutes
+ID: 718310 Day: 6 Carrier: AS Number: 734 Origin: Seattle WA Dest: Boston MA Duration: 295 Capacity: 9 Price: 847
+Booked flight(s), reservation ID: 1
+Goodbye
+|
+# Terminal 2 succeeds in user creation, but fails booking
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 295 minutes
+ID: 718310 Day: 6 Carrier: AS Number: 734 Origin: Seattle WA Dest: Boston MA Duration: 295 Capacity: 9 Price: 847
+You cannot book two flights in the same day
+Goodbye
+|
+# Terminal 2 succeeds in user creation and booking
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 295 minutes
+ID: 718310 Day: 6 Carrier: AS Number: 734 Origin: Seattle WA Dest: Boston MA Duration: 295 Capacity: 9 Price: 847
+Booked flight(s), reservation ID: 1
+Goodbye
+*

@@ -1,0 +1,23 @@
+# This tests one user trying to book two flights on the same day
+# One of them should succeed and the other should fail.
+#
+# user 1
+create user1 user1 10000
+login user1 user1
+search "Kahului HI" "Los Angeles CA" 1 6 1
+book 0
+search "Seattle WA" "Boston MA" 1 6 1
+book 0
+quit
+*
+# expected output for user1
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 273 minutes
+ID: 131239 Day: 6 Carrier: DL Number: 292 Origin: Kahului HI Dest: Los Angeles CA Duration: 273 Capacity: 14 Price: 689
+Booked flight(s), reservation ID: 1
+Itinerary 0: 1 flight(s), 295 minutes
+ID: 718310 Day: 6 Carrier: AS Number: 734 Origin: Seattle WA Dest: Boston MA Duration: 295 Capacity: 9 Price: 847
+You cannot book two flights in the same day
+Goodbye
+*

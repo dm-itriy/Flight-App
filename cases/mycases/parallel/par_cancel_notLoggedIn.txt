@@ -1,0 +1,25 @@
+# Trying to cancel a reservation that doesn't exist
+# user 1
+create user1 user1 10000
+login user1 user1
+search "Kahului HI" "Los Angeles CA" 1 6 1
+book 0
+cancel 1
+quit
+*
+# expected output for user1
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 273 minutes
+ID: 131239 Day: 6 Carrier: DL Number: 292 Origin: Kahului HI Dest: Los Angeles CA Duration: 273 Capacity: 14 Price: 689
+Booked flight(s), reservation ID: 1
+Canceled reservation 1
+Goodbye
+*
+cancel 1
+quit
+*
+# expected output for user1
+Cannot cancel reservations, not logged in
+Goodbye
+*
