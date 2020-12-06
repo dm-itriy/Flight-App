@@ -46,7 +46,7 @@ public class Query {
   private PreparedStatement getUserStatement;
 
   private static final String SEARCH = "SELECT TOP (?) fid,day_of_month,carrier_id,flight_num,origin_city,dest_city,actual_time,capacity,price "
-          + "FROM Flights WHERE origin_city = ? AND dest_city = ? AND day_of_month =  ? AND canceled != 1 ORDER BY actual_time ASC";
+          + "FROM Flights WHERE origin_city = ? AND dest_city = ? AND day_of_month =  ? AND canceled != 1 ORDER BY actual_time, fid";
   private PreparedStatement searchStatement;
 
   private static final String ONE_STOP_SEARCH =
